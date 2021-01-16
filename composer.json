@@ -9,7 +9,13 @@
             "email": "Aditamaakbar1108@gmail.com"
         }
     ],
+    "autoload": {
+        "classmap": [
+            "./controllers/"
+        ]
+    },
     "require": {
-        "cybe/cybe-router": "1.1.0"
+        "cybe/cybe-router": "1.1.0",
+        "twig/twig": "3.0"
     }
 }
