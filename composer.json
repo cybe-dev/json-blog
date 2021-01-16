@@ -10,6 +10,6 @@
         }
     ],
     "require": {
-        "cybe/cybe-router": "^1.0"
+        "cybe/cybe-router": "1.1.0"
     }
 }
