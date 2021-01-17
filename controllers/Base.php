@@ -2,8 +2,6 @@
 
 namespace Controller;
 
-chdir(__DIR__ . "/../");
-
 class Base
 {
     protected $param;
@@ -23,6 +21,7 @@ class Base
 
     public function template($file, $param)
     {
+        chdir(__DIR__ . "/../");
         $loader = new \Twig\Loader\FilesystemLoader("template");
         $twig = new \Twig\Environment($loader);
 

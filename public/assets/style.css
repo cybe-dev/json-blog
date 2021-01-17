@@ -151,6 +151,7 @@ body {
     background-color: #FFF;
     display: flex;
     flex-direction: column;
+    margin-bottom: 80px;
 }
 
 .section-outer {
@@ -239,10 +240,10 @@ body {
 }
 
 .profile .photo {
-    width: 64px;
-    height: 64px;
+    width: 100px;
+    height: 100px;
     object-fit: cover;
-    border-radius: 32px;
+    border-radius: 50px;
 }
 
 .profile .name {
@@ -284,6 +285,7 @@ body {
     align-items: center;
     justify-content: center;
     margin: 0;
+    margin-top: -60px;
     padding: 0;
     padding: 0 20px;
 }
@@ -407,6 +409,7 @@ body {
     .main-inner {
         width: 1280px;
         margin: 0;
+        margin-bottom: 80px;
     }
     .aside-outer {
         width: 400px;

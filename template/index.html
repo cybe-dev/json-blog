@@ -35,70 +35,22 @@
             <div class="header-break"></div>
             <div class="main-inner">
                 <section class="section-outer">
+                    {% for index in article_list %}
                     <article class="article-outer">
                         <div class="article-header">
-                            <h2 class="article-title"><a href="/">Lorem Ipsum</a></h2>
+                            <h2 class="article-title"><a href="{{base_url}}article/{{articles[index].slug}}">{{articles[index].title}}</a></h2>
                             <div class="article-subheader">
                                 Diposting pada 11 Agustus 2018, 11:08
                             </div>
                         </div>
                         <div class="article-preview">
                             <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi semper arcu tincidunt, condimentum erat et, viverra nisi. Praesent ullamcorper sapien et sem elementum iaculis. Nulla eget dolor justo. Vestibulum vel augue luctus, suscipit dolor id, pretium
-                                nisi. Curabitur nec bibendum magna, quis volutpat ligula. Aenean quis semper massa, ac iaculis leo. Nunc luctus efficitur lorem, in imperdiet neque molestie vel. Mauris id arcu nec ante ullamcorper aliquet. Sed ut purus
-                                diam. Vivamus a felis vitae erat tincidunt hendrerit.
+                                {{articles[index].content|slice(0,589)|striptags}}
                             </p>
                         </div>
-                        <a href="/" class="article-read-more">Selengkapnya &raquo;</a>
+                        <a href="{{base_url}}article/{{articles[index].slug}}" class="article-read-more">Selengkapnya &raquo;</a>
                     </article>
-                    <article class="article-outer">
-                        <div class="article-header">
-                            <h2 class="article-title"><a href="/">Lorem Ipsum</a></h2>
-                            <div class="article-subheader">
-                                Diposting pada 11 Agustus 2018, 11:08
-                            </div>
-                        </div>
-                        <div class="article-preview">
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi semper arcu tincidunt, condimentum erat et, viverra nisi. Praesent ullamcorper sapien et sem elementum iaculis. Nulla eget dolor justo. Vestibulum vel augue luctus, suscipit dolor id, pretium
-                                nisi. Curabitur nec bibendum magna, quis volutpat ligula. Aenean quis semper massa, ac iaculis leo. Nunc luctus efficitur lorem, in imperdiet neque molestie vel. Mauris id arcu nec ante ullamcorper aliquet. Sed ut purus
-                                diam. Vivamus a felis vitae erat tincidunt hendrerit.
-                            </p>
-                        </div>
-                        <a href="/" class="article-read-more">Selengkapnya &raquo;</a>
-                    </article>
-                    <article class="article-outer">
-                        <div class="article-header">
-                            <h2 class="article-title"><a href="/">Lorem Ipsum</a></h2>
-                            <div class="article-subheader">
-                                Diposting pada 11 Agustus 2018, 11:08
-                            </div>
-                        </div>
-                        <div class="article-preview">
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi semper arcu tincidunt, condimentum erat et, viverra nisi. Praesent ullamcorper sapien et sem elementum iaculis. Nulla eget dolor justo. Vestibulum vel augue luctus, suscipit dolor id, pretium
-                                nisi. Curabitur nec bibendum magna, quis volutpat ligula. Aenean quis semper massa, ac iaculis leo. Nunc luctus efficitur lorem, in imperdiet neque molestie vel. Mauris id arcu nec ante ullamcorper aliquet. Sed ut purus
-                                diam. Vivamus a felis vitae erat tincidunt hendrerit.
-                            </p>
-                        </div>
-                        <a href="/" class="article-read-more">Selengkapnya &raquo;</a>
-                    </article>
-                    <article class="article-outer">
-                        <div class="article-header">
-                            <h2 class="article-title"><a href="/">Lorem Ipsum</a></h2>
-                            <div class="article-subheader">
-                                Diposting pada 11 Agustus 2018, 11:08
-                            </div>
-                        </div>
-                        <div class="article-preview">
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi semper arcu tincidunt, condimentum erat et, viverra nisi. Praesent ullamcorper sapien et sem elementum iaculis. Nulla eget dolor justo. Vestibulum vel augue luctus, suscipit dolor id, pretium
-                                nisi. Curabitur nec bibendum magna, quis volutpat ligula. Aenean quis semper massa, ac iaculis leo. Nunc luctus efficitur lorem, in imperdiet neque molestie vel. Mauris id arcu nec ante ullamcorper aliquet. Sed ut purus
-                                diam. Vivamus a felis vitae erat tincidunt hendrerit.
-                            </p>
-                        </div>
-                        <a href="/" class="article-read-more">Selengkapnya &raquo;</a>
-                    </article>
+                    {% endfor %}
                 </section>
                 <aside class="aside-outer">
                     <div class="profile">
