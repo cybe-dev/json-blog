@@ -16,6 +16,8 @@
     },
     "require": {
         "cybe/cybe-router": "1.1.0",
-        "twig/twig": "3.0"
+        "twig/twig": "3.0",
+        "symfony/dotenv": "^5.2",
+        "twig/intl-extra": "^3.2"
     }
 }

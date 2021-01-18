@@ -10,7 +10,7 @@ class Base
     {
         $this->param = [
             "base_url" => (isset($_SERVER["HTTPS"]) && ($_SERVER["HTTPS"] == "on" || $_SERVER["HTTPS"] == 1) ? "https" : "http") . "://" . $_SERVER["HTTP_HOST"] . "/",
-            "site_name" => "Akbar Aditama",
+            "site_name" => $_ENV["SITE_NAME"],
         ];
     }
 
@@ -24,6 +24,7 @@ class Base
         chdir(__DIR__ . "/../");
         $loader = new \Twig\Loader\FilesystemLoader("template");
         $twig = new \Twig\Environment($loader);
+        $twig->addExtension(new \Twig\Extra\Intl\IntlExtension());
 
         echo $twig->render($file, array_merge($param, $this->param));
     }

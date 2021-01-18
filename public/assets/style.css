@@ -23,7 +23,7 @@ body {
     min-height: 100%;
     margin: 0;
     padding: 0;
-    background-color: #F0F0F0;
+    background-color: #E9E9E9;
 }
 
 .header-outer {
@@ -58,6 +58,9 @@ body {
 .heading {
     margin: 0;
     padding: 0;
+}
+
+.header-inner h1 {
     padding-bottom: 5px;
 }
 
@@ -160,7 +163,7 @@ body {
 
 .aside-outer {
     width: 100%;
-    background-color: #f9f9f9;
+    background-color: #f0f0f0;
     box-sizing: border-box;
     padding: 0 20px
 }
@@ -215,6 +218,30 @@ body {
 .article-outer .article-read-more:hover {
     background-color: #0278ae;
     color: #FFF;
+}
+
+.pagination {
+    margin: 0;
+    padding: 12px 20px;
+    background-color: #f9f9f9;
+    display: flex;
+    justify-content: space-between;
+}
+
+.pagination a,
+.pagination span {
+    border: 1px solid transparent;
+    display: block;
+    background: #0278ae;
+    color: #FFF;
+    margin: 0 9px;
+    padding: 9px 21px;
+}
+
+.pagination span {
+    border: 1px solid #aaa;
+    background-color: transparent;
+    color: #333
 }
 
 .profile {

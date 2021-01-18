@@ -1,0 +1,15 @@
+{% set h1 = "div" %} {% extends "main.html" %} {% block content %}
+<article class="article-outer">
+    <div class="article-header">
+        <h2 class="article-title">{{article.title}}</h2>
+        <div class="article-subheader">
+            Diposting pada {{article.publish_date|format_datetime(pattern="D MMMM YYYY, HH:mm")}}
+        </div>
+    </div>
+    <div class="article-preview">
+        <p>
+            {{article.content|raw}}
+        </p>
+    </div>
+</article>
+{% endblock %}

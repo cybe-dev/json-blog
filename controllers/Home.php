@@ -8,6 +8,12 @@ class Home extends Base
 {
     public function index($param)
     {
+        $page = 1;
+        $page_title = $_ENV["SITE_NAME"];
+        if (isset($param["page"])) {
+            $page = $param["page"];
+            $page_title .= " / halaman : $page";
+        }
         $get_article = array_diff(scandir("../articles"), array('..', '.'));
         $articles = [];
         $article_slug = [];
@@ -24,7 +30,8 @@ class Home extends Base
 
         arsort($article_slug);
         $article_list = array_keys($article_slug);
+        $article_num = count($article_list);
 
-        $this->template("index.html", ["page_title" => "Akbar Aditama", "article_list" => $article_list, "articles" => $articles]);
+        $this->template("index.html", ["page_title" => $page_title, "article_list" => $article_list, "articles" => $articles, "page" => $page, "article_num" => $article_num]);
     }
 }
