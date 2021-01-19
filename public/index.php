@@ -22,6 +22,7 @@ $router = new Router();
 $router->get("/", [[$home, "index"]]);
 $router->get("/page/:page", [[$home, "index"]]);
 $router->get("/article/:slug", [[$article, "index"]]);
+$router->get("/404", [[$home, "not_found"]]);
 
 $router->post("/api/article", [
     [$api, "verify"],
@@ -32,5 +33,7 @@ $router->post("/api/article/delete/:slug", [
     [$api, "verify"],
     [$api, "destroy"],
 ]);
+
+$router->set_404([$home, "not_found"]);
 
 $router->serve();

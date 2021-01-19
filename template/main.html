@@ -1,11 +1,12 @@
-{% set h1 = h1 ? h1:"h1" %}
+{% set h1 = h1 ? h1:"h1" %} {% set title = page_title ? page_title:site_name %} {% set description = page_description ? page_description:site_description %}
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{page_title}}</title>
+    <title>{{title}}</title>
+    <meta name="description" content="{{description}}" /> {% block opengraph %}{% endblock %}
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Kanit:wght@400;700&family=Oswald:wght@400;700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="/assets/style.css" />
@@ -25,9 +26,7 @@
                 <div class="navbar-overlay hide" id="navbarOverlay" onclick="toggleNavbar()"></div>
                 <nav class="navbar-outer slide-right" id="navbarContainer">
                     <ul class="navbar">
-                        <li class="navbar-item"><a href="/" class="navbar-link">Home</a></li>
-                        <li class="navbar-item"><a href="/" class="navbar-link">About</a></li>
-                        <li class="navbar-item"><a href="/" class="navbar-link">Disclaimer</a></li>
+                        <li class="navbar-item"><a href="/" class="navbar-link" title="Home">Home</a></li>
                     </ul>
                 </nav>
             </div>
@@ -42,15 +41,16 @@
                     <div class="profile">
                         <h3 class="title">Profil Saya</h3>
                         <div class="description">
-                            <img src="https://picsum.photos/100" class="photo" />
-                            <h4 class="name">Akbar Aditama</h4>
+                            <img src="{{profile_pic}}" class="photo" alt="Foto profil {{author}}" />
+                            <h4 class="name">{{author}}</h4>
                             <span class="subtitle"><i class="fas fa-map-marker-alt"></i> Indonesia</span>
                         </div>
                         <div class="social-media">
-                            <a href="#"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#"><i class="fab fa-instagram"></i></a>
-                            <a href="#"><i class="fab fa-github"></i></a>
-                            <a href="#"><i class="fas fa-globe"></i></a>
+                            {% if facebook_link != "" %}
+                            <a href="{{facebook_link}}" title="Temukan saya di Facebook"><i class="fab fa-facebook-f"></i></a> {% endif %} {% if instagram_link != "" %}
+                            <a href="{{instagram_link}}" title="Temukan saya di Instagram"><i class="fab fa-instagram"></i></a> {% endif %} {% if github_link != "" %}
+                            <a href="{{github_link}}" title="Temukan saya di Github"><i class="fab fa-github"></i></a> {% endif %} {% if website_link != "" %}
+                            <a href="{{website_link}}" title="Website portofolio saya"><i class="fas fa-globe"></i></a> {% endif %}
                         </div>
                     </div>
                 </aside>

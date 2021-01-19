@@ -1,7 +1,7 @@
 {% extends "main.html" %} {% block content %} {% set limit=8 %} {% for index in article_list|slice(((page - 1) * limit),limit) %}
 <article class="article-outer">
     <div class="article-header">
-        <h2 class="article-title"><a href="{{base_url}}article/{{articles[index].slug}}">{{articles[index].title}}</a></h2>
+        <h2 class="article-title"><a href="{{base_url}}article/{{articles[index].slug}}" title="{{articles[index].title}}">{{articles[index].title}}</a></h2>
         <div class="article-subheader">
             Diposting pada {{articles[index].publish_date|format_datetime(pattern="D MMMM YYYY, HH:mm")}}
         </div>
@@ -11,17 +11,22 @@
             {{articles[index].content|slice(0,589)|striptags}}
         </p>
     </div>
-    <a href="{{base_url}}article/{{articles[index].slug}}" class="article-read-more">Selengkapnya &raquo;</a>
+    <a href="{{base_url}}article/{{articles[index].slug}}" class="article-read-more" title="Baca selengkapnya &quot;{{articles[index].title}}&quot;">Selengkapnya &raquo;</a>
 </article>
 {% else %}
 <div style="text-align:center;margin:20px;padding: 25px 0;font-weight: bold;">Artikel tidak ditemukan</div>
 {% endfor %} {% if article_num > limit %} {% set total_page = (article_num / limit)|round %}
 <div class="pagination">
     {% if page > 1 %}
-    <a href="{{base_url}}page/{{(page - 1)}}">&laquo;Sebelumnya</a> {% else %}
+    <a href="{{base_url}}page/{{(page - 1)}}" title="Beralih ke halaman {{(page - 1)}}">&laquo;Sebelumnya</a> {% else %}
     <span>&laquo;Sebelumnya</span> {% endif %} {% if page
-    < total_page %} <a href="{{base_url}}page/{{(page + 1)}}">Selanjutnya&raquo;</a>
+    < total_page %} <a href="{{base_url}}page/{{(page + 1)}}" title="Beralih ke halaman {{(page + 1)}}">Selanjutnya&raquo;</a>
         {% else %}
         <span>Selanjutnya&raquo;</span> {% endif %}
 </div>
-{% endif %} {% endblock %}
+{% endif %} {% endblock %} {% block opengraph %}
+<meta property="og:title" content="{{title}}" />
+<meta property="og:description" content="{{description}}" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="{{current_url}}" />
+<meta property="og:image" content="{{profile_pic}}" /> {% endblock %}

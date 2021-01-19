@@ -34,4 +34,9 @@ class Home extends Base
 
         $this->template("index.html", ["page_title" => $page_title, "article_list" => $article_list, "articles" => $articles, "page" => $page, "article_num" => $article_num]);
     }
+
+    public function not_found()
+    {
+        $this->template("404.html", ["page_title" => "Halaman tidak ditemukan", "page_description" => "Halaman tidak ditemukan"]);
+    }
 }
